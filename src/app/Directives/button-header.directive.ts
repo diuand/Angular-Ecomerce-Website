@@ -1,0 +1,62 @@
+
+import { Directive, ElementRef,HostListener, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Renderer2, OnInit } from '@angular/core';
+
+@Directive({
+  selector: '[appButtonHeader]'
+})
+export class ButtonHeaderDirective implements OnChanges {
+  @Input() public appHighlight: any;
+  constructor(private el: ElementRef, private renderer: Renderer2) { }
+
+
+
+  ngOnChanges(changes : any) {
+    const oppen_button = `
+      transition: all 0.5s ease-out;
+      color: white;
+    `;
+  const close_button = `
+      transition: all 0.5s ease-out;
+      color: red;
+    `;
+    if (this.appHighlight == 'close'){
+      this.renderer.setAttribute(this.el.nativeElement, 'style', close_button);
+    }
+    else{
+      this.renderer.setAttribute(this.el.nativeElement, 'style', oppen_button);
+    }
+
+
+
+  }
+
+}
+  // constructor(private el: ElementRef, private renderer: Renderer2) { }
+  // private togggle_button = false;
+  // @HostListener('click') onClick() {
+  //   // Define your CSS styles as a single string using template literals
+  //   const oppen_button = `
+
+  //     transition: all 0.5s ease-out;
+  //     color: red;
+  //   `;
+  //   const close_button = `
+  //     transition: all 0.5s ease-out;
+  //     color: white;
+  //   `;
+
+  //   var cssStyles = ''
+  //   if (this.togggle_button){
+  //     cssStyles = close_button
+
+  //   }
+  //   else{
+  //     cssStyles = oppen_button
+  //   }
+
+  //   // Apply the CSS styles to the host element
+  //   this.renderer.setAttribute(this.el.nativeElement, 'style', cssStyles);
+  //   this.togggle_button = !this.togggle_button
+  // }
+

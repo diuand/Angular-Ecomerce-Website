@@ -1,0 +1,116 @@
+
+
+
+<div class="bg-dark header  text-white" id="header">
+  <div class="border-bottom py-1 d-flex justify-content-center" >
+    Livrare rapida in 24 de ore lucratoare
+  </div>
+  <div class="py-3 d-flex align-items-center justify-content-between">
+
+    <!-- logo and menu button -->
+    <div class="d-flex align-items-center">
+
+      <mat-icon class="mx-2 fs-2 buton" (click)="toggle_button(buttons[0])" [fontIcon]="buttons[0].icon"  appButtonHeader [appHighlight]="buttons[0].icon" ></mat-icon>
+
+      <a routerLink="home">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0276/8951/7174/files/genius_nutrition_logo_220x@2x.png?v=1613733974"
+          alt="Logo"
+          height="60px"
+          width="100px">
+      </a>
+    </div>
+
+    <!-- search pop-up desktop -->
+    <div class=" bg-dark py-2 border-0  d-md-block d-none" style="width: 60%;">
+      <div class=" py-2 mx-3">
+        <div class="input-group ">
+          <input type="email" class="form-control rounded-start  " style="height: 44px;"  placeholder="Search...">
+          <button class="input-group-text bg-danger border-danger rounded-end ">
+            <!-- search button -->
+            <mat-icon class="mx-1 text-white "
+                fontIcon="search"
+
+              ></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- header buttons -->
+    <div >
+      <!-- search button -->
+      <mat-icon class="mx-1  buton d-md-none"
+                (click)="toggle_button(buttons[3])"
+                [fontIcon]="buttons[3].icon"
+                appButtonHeader [appHighlight]="buttons[3].icon"
+      ></mat-icon>
+      <!-- account button -->
+      <mat-icon class="mx-1  buton"
+                (click)="toggle_button(buttons[4])"
+                [fontIcon]="buttons[4].icon"
+                appButtonHeader [appHighlight]="buttons[4].icon"
+      ></mat-icon>
+      <!-- favorite button -->
+      <mat-icon class="mx-1  buton"
+                (click)="toggle_button(buttons[2])"
+                [fontIcon]="buttons[2].icon"
+                appButtonHeader [appHighlight]="buttons[2].icon"
+      ></mat-icon>
+      <!-- shopping cart button -->
+      <mat-icon class=" ms-1 buton me-3 "
+                (click)="toggle_button(buttons[1])"
+                [fontIcon]="buttons[1].icon"
+                appButtonHeader [appHighlight]="buttons[1].icon"
+
+                [matBadge]="1"
+                matBadgeColor="warn"
+                [matBadgeHidden]="hidden_mat_badge"
+      ></mat-icon>
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- search pop-up mobile -->
+<div class=" bg-dark py-2 border-0 vw-100 search_pop_up d-md-none"*ngIf="buttons[3].isOpen">
+  <div class=" py-2 mx-3">
+    <div class="input-group ">
+      <input type="email" class="form-control rounded-start  " style="height: 44px;"  placeholder="Search...">
+      <button class="input-group-text bg-danger border-danger rounded-end ">
+        <!-- search button -->
+        <mat-icon class="mx-1 text-white "
+            fontIcon="search"
+
+          ></mat-icon>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- header pop-up -->
+<div class="bg-danger vw-100"
+    *ngIf="buttons[0].isOpen"
+    [ngStyle]="{'height.px': buttons[0].menu_height}">
+</div>
+<!-- admin pop-up -->
+<div class="bg-light vw-100"
+    *ngIf="buttons[4].isOpen"
+    [ngStyle]="{'height.px': buttons[4].menu_height}">
+</div>
+<!-- favorite pop-up -->
+<div class="bg-info vw-100"
+    *ngIf="buttons[2].isOpen"
+    [ngStyle]="{'height.px': buttons[2].menu_height}">
+</div>
+
+<!-- cart pop-up -->
+<div class="bg-warning vw-100"
+    *ngIf="buttons[1].isOpen"
+    [ngStyle]="{'height.px': buttons[1].menu_height}">
+</div>
+
