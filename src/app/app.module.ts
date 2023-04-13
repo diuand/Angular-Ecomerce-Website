@@ -14,12 +14,20 @@ import {MatDividerModule} from '@angular/material/divider';
 import { ButtonHeaderDirective } from './Directives/button-header.directive';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { HomeComponent } from './pages/home/home.component';
+import { MenuComponent } from './components/header-pop-ups/menu/menu.component';
+import { HoverOpacity9Directive } from './Directives/hover-opacity-9.directive';
+import { HoverBlueDirective } from './Directives/hover-blue.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ButtonHeaderDirective
+    ButtonHeaderDirective,
+    HomeComponent,
+    MenuComponent,
+    HoverOpacity9Directive,
+    HoverBlueDirective
   ],
   imports: [
     BrowserModule,

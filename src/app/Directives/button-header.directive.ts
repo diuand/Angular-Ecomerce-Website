@@ -16,10 +16,10 @@ export class ButtonHeaderDirective implements OnChanges {
       transition: all 0.5s ease-out;
       color: white;
     `;
-  const close_button = `
-      transition: all 0.5s ease-out;
-      color: red;
-    `;
+    const close_button = `
+        transition: all 0.5s ease-out;
+        color: red;
+      `;
     if (this.appHighlight == 'close'){
       this.renderer.setAttribute(this.el.nativeElement, 'style', close_button);
     }
@@ -32,31 +32,4 @@ export class ButtonHeaderDirective implements OnChanges {
   }
 
 }
-  // constructor(private el: ElementRef, private renderer: Renderer2) { }
-  // private togggle_button = false;
-  // @HostListener('click') onClick() {
-  //   // Define your CSS styles as a single string using template literals
-  //   const oppen_button = `
-
-  //     transition: all 0.5s ease-out;
-  //     color: red;
-  //   `;
-  //   const close_button = `
-  //     transition: all 0.5s ease-out;
-  //     color: white;
-  //   `;
-
-  //   var cssStyles = ''
-  //   if (this.togggle_button){
-  //     cssStyles = close_button
-
-  //   }
-  //   else{
-  //     cssStyles = oppen_button
-  //   }
-
-  //   // Apply the CSS styles to the host element
-  //   this.renderer.setAttribute(this.el.nativeElement, 'style', cssStyles);
-  //   this.togggle_button = !this.togggle_button
-  // }
 

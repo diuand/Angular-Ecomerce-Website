@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ViewChild,HostListener  } from '@angular/core';
 import { ButtonService } from 'src/app/Services/button.service';
 import {ElementRef,Renderer2} from '@angular/core';
 @Component({
@@ -25,7 +25,7 @@ export class HeaderComponent  {
   // REQUIREMENTS for toggle_buttons
   list_of_old_buttons : any[] = [];
 
-
+  constructor(private renderer: Renderer2, private el: ElementRef) {}
 
   // toggle buttons algoritm
   toggle_button(button:any){
@@ -78,10 +78,27 @@ export class HeaderComponent  {
 
   }
 
+  // newsletter dissapear on scroll
+  display_newsletter = true
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  @HostListener('window:scroll', ['$event'])
+  onScroll(event: Event) {
+    const scrollY = window.scrollY
+    if (scrollY > 50){
+      this.display_newsletter = false
+    }
+    else{
+      this.display_newsletter = true
+    }
 
+  }
 
+  // subscribe form toggle
+  display_subscribe = false
+
+  toggle_subs_form(){
+    this.display_subscribe = !this.display_subscribe
+  }
 
 
 

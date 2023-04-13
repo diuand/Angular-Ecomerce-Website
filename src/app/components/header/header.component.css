@@ -1,15 +1,18 @@
+
+/* standard button */
 .buton{
   cursor: pointer;
 }
 
 
+/* search animation */
 .search_pop_up{
   transform: translateY(-50px);
   opacity: 0;
-  animation: test 0.5s forwards;
+  animation: search 0.5s forwards;
 
 }
-@keyframes test {
+@keyframes search {
   30%{
     opacity: 0;
   }
@@ -20,4 +23,22 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.pup_up_animation{
+  opacity: 0;
+  scale: 0.8;
+  animation: menu_animation 0.2s forwards;
+}
+@keyframes menu_animation {
+  to{
+    scale: 1;
+    opacity: 1;
+  }
+}
+/* newsletter form close button animation + psition */
+.subscribe_close{
+  top: 15%;
+  right: 5%;
+
 }
