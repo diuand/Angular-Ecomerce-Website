@@ -1,0 +1,253 @@
+
+
+
+<div class="fixed-top bg-dark  ">
+
+  <!-- header newsletter -->
+  <div class="bg-dark text-white  border-bottom" *ngIf="display_newsletter">
+
+    <!-- subscribe form -->
+    <div class="bg-light text-center text-dark position-relative" *ngIf="display_subscribe">
+      <!-- content -->
+      <div>
+
+        <!-- title -->
+        <div class="py-3 pt-5">
+          <div class="fw-bold h3">Newsletter</div>
+        </div>
+
+        <!-- content -->
+        <p class="m-0 p-0 pb-4">Fii la curent cu cele mai noi produse de ultima generatie si reduceri exclusive!</p>
+
+        <!-- subscribe form -->
+        <div class="container d-flex pb-5 " style="width: 550px;">
+
+          <!-- data input -->
+          <input type="email" class="form-control rounded-0  me-2 " style="height: 48px;"  placeholder="Email">
+
+          <!-- send button -->
+          <div class="buton bg-danger px-4 d-flex align-items-center text-white fw-bold" appHoverOpacity9>
+            <div>Subscribe</div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <!-- close button -->
+      <div class="buton me-3 position-absolute subscribe_close"
+          appHoverBlue
+          (click)="display_subscribe = false"
+          >
+        <i class="bi bi-x-lg h4 fw-bold  " ></i>
+      </div>
+
+    </div>
+
+
+    <!-- newsletter button and text -->
+    <div class="d-flex justify-content-center">
+      <!-- newsletter text -->
+      <div class="p-1 py-2 flex-grow-1 justify-content-center text-center d-none d-md-block "
+            style="margin-left: 18vw;">
+        Livrare rapida in 24 de ore lucratoare
+      </div>
+      <div class="d-block d-md-none py-1">
+        Livrare rapida in 24 de ore lucratoare
+      </div>
+      <!-- subsribe button -->
+      <div class="bg-danger buton  px-3  pt-2 fw-bold text-center d-none d-md-block "
+            appHoverOpacity9
+            style="margin-right: 10vw;"
+            (click)="toggle_subs_form()">
+        <i class="bi bi-envelope-fill pe-2"></i>
+        Subscribe
+      </div>
+
+
+    </div>
+
+  </div>
+  <!-- header logo and buttons + search pop-up mobile -->
+  <div class="container-xl">
+    <!-- header logo and buttons -->
+    <div class="bg-dark header   text-white" id="header">
+
+      <div class="py-3 d-flex  align-items-center justify-content-between">
+
+        <!-- logo and menu button -->
+        <div class="d-flex align-items-center">
+
+          <!-- menu button -->
+          <mat-icon class="mx-2 fs-2 buton d-lg-none"  (click)="toggle_button(buttons[0])" [fontIcon]="buttons[0].icon" appHoverOpacity9  appButtonHeader [appHighlight]="buttons[0].icon" ></mat-icon>
+
+          <!-- logo -->
+          <a routerLink="home" class="ms-lg-4 ms-xl-0">
+            <img class="d-block d-md-none"
+              src="https://cdn.shopify.com/s/files/1/0276/8951/7174/files/genius_nutrition_logo_220x@2x.png?v=1613733974"
+              alt="Logo"
+              height="60px"
+              width="100px">
+            <img class="d-none d-md-block"
+              src="https://cdn.shopify.com/s/files/1/0276/8951/7174/files/genius_nutrition_logo_220x@2x.png?v=1613733974"
+              alt="Logo"
+              height="130px"
+              width="220px">
+          </a>
+
+        </div>
+
+        <!-- search pop-up desktop -->
+        <div class=" bg-dark py-2 border-0  d-md-block d-none" style="width: 42%;">
+          <div class=" py-2 mx-3">
+            <div class="input-group ">
+              <input type="email" class="form-control rounded-start  " style="height: 44px;"  placeholder="Search...">
+              <button class="input-group-text bg-danger border-danger rounded-end " appHoverOpacity9>
+                <!-- search button -->
+                <mat-icon  class="mx-1 text-white "
+                    fontIcon="search"
+
+                  ></mat-icon>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- account button desktop -->
+        <div style="width: 130px;" class="d-lg-block d-none">
+          <div class="row">
+            <div class="col-12">Login / Register</div>
+            <div class="col-12 position-relative">
+              <button class="btn border-0" (click)="toggle_button(buttons[4])"
+              appButtonHeader [appHighlight]="buttons[4].icon"
+              appHoverOpacity9>My Account</button>
+
+              <!-- admin pop-up desktop-->
+              <div class="bg-light  pup_up_animation d-lg-block d-none position-absolute position-relative"
+              style="width: 320px; left: -100px;"
+              *ngIf="buttons[4].isOpen"
+              [ngStyle]="{'height.px': buttons[4].menu_height}">
+                <!-- arrow -->
+                <div class="position-absolute " style="width: 20px; height: 20px; left: 50%; top: -13px;" >
+                  <svg focusable="false" class="icon icon--nav-triangle-borderless " viewBox="0 0 20 9" role="presentation">
+                    <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path>
+                  </svg>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- delimiter -->
+        <div class="vr align-self-center d-lg-block d-none" style="height: 50px;"></div>
+
+        <!-- header buttons -->
+        <div >
+
+          <!-- search button -->
+          <mat-icon class="mx-1  buton d-md-none"
+                    (click)="toggle_button(buttons[3])"
+                    [fontIcon]="buttons[3].icon"
+                    appButtonHeader [appHighlight]="buttons[3].icon"
+                    appHoverOpacity9
+          ></mat-icon>
+
+            <!-- account button mobile -->
+          <mat-icon class="mx-1 d-lg-none  buton"
+              (click)="toggle_button(buttons[4])"
+              [fontIcon]="buttons[4].icon"
+              appButtonHeader [appHighlight]="buttons[4].icon"
+              appHoverOpacity9
+          ></mat-icon>
+
+        
+          <!-- favorite button -->
+          <mat-icon class="mx-1  buton"
+                    (click)="toggle_button(buttons[2])"
+                    [fontIcon]="buttons[2].icon"
+                    appButtonHeader [appHighlight]="buttons[2].icon"
+                    appHoverOpacity9
+          ></mat-icon>
+          
+
+          <!-- cart button -->
+          <div class="d-inline position-relative">
+            <button appButtonHeader (click)="toggle_button(buttons[1])" [appHighlight]="buttons[1].icon"  appHoverOpacity9 class="d-inline-flex align-items-center bg-dark border-0">
+              <mat-icon [fontIcon]="buttons[1].icon" [matBadge]="1" matBadgeColor="warn" [matBadgeHidden]="hidden_mat_badge"></mat-icon>
+              <!--cart text desktop -->
+              <span class="ms-3 mt-1 fw-semibold d-none d-lg-block ">Shopping Cart</span>
+            </button>
+            <!-- cart pop-up desktop -->
+            <div class="bg-light  pup_up_animation d-none d-lg-block position-absolute position-relative"
+               style="width: 470px; left: -335px  ; top: 30px;"
+              *ngIf="buttons[1].isOpen"
+              [ngStyle]="{'height.px': buttons[1].menu_height}">
+              <!-- arrow -->
+              <div class="position-absolute " style="width: 20px; height: 20px; left: 90%; top: -13px;" >
+                <svg focusable="false" class="icon icon--nav-triangle-borderless " viewBox="0 0 20 9" role="presentation">
+                  <path d="M.47108938 9c.2694725-.26871321.57077721-.56867841.90388257-.89986354C3.12384116 6.36134886 5.74788116 3.76338565 9.2467995.30653888c.4145057-.4095171 1.0844277-.40860098 1.4977971.00205122L19.4935156 9H.47108938z" fill="#ffffff"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          
+
+         
+         
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- search pop-up mobile -->
+    <div class=" bg-dark py-2 border-0 vw-100 search_pop_up d-md-none"*ngIf="buttons[3].isOpen">
+      <div class=" py-2 mx-3">
+        <div class="input-group ">
+          <input type="email" class="form-control rounded-start  " style="height: 44px;"  placeholder="Search...">
+
+          <!-- search button -->
+          <button class="input-group-text bg-danger border-danger rounded-end " appHoverOpacity9>
+            <mat-icon class="mx-1 text-white "
+
+                fontIcon="search"
+
+              ></mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <!-- menu pop-up -->
+  <div class="  bg-light  pup_up_animation"
+      *ngIf="buttons[0].isOpen"
+      [ngStyle]="{'height.px': buttons[0].menu_height}">
+      <app-menu></app-menu>
+  </div>
+  <!-- admin pop-up -->
+  <div class="bg-light vw-100 pup_up_animation d-lg-none"
+      *ngIf="buttons[4].isOpen"
+      [ngStyle]="{'height.px': buttons[4].menu_height}">
+  </div>
+  <!-- favorite pop-up -->
+  <div class="bg-info vw-100 pup_up_animation"
+      *ngIf="buttons[2].isOpen"
+      [ngStyle]="{'height.px': buttons[2].menu_height}">
+  </div>
+
+  <!-- cart pop-up -->
+  <div class="bg-warning vw-100 pup_up_animation d-lg-none"
+      *ngIf="buttons[1].isOpen"
+      [ngStyle]="{'height.px': buttons[1].menu_height}">
+  </div>
+</div>
+
+
