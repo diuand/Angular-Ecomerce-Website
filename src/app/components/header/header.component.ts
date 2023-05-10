@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild,HostListener  } from '@angular/core';
+import { AfterViewInit,AfterContentInit, OnInit,Component, ViewChild,HostListener ,Output ,EventEmitter} from '@angular/core';
 import { ButtonService } from 'src/app/Services/button.service';
 import {ElementRef,Renderer2} from '@angular/core';
 @Component({
@@ -6,9 +6,10 @@ import {ElementRef,Renderer2} from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent  {
+export class HeaderComponent implements AfterViewInit {
 
   @ViewChild('header', { static: true }) header!: ElementRef;
+  @Output() SendHeaderHeight = new EventEmitter<string>();
 
   // header buttons
   buttons = [
@@ -17,6 +18,7 @@ export class HeaderComponent  {
     { icon: 'favorite', isOpen: false  ,menu_height : 0 },
     { icon: 'search', isOpen: false  ,menu_height : 0 },
     { icon: 'person', isOpen: false  ,menu_height : 0 },
+    { icon: 'admin_desktop', isOpen: false  ,menu_height : 0 },
   ];
 
   // shopping cart mat badge
@@ -25,7 +27,16 @@ export class HeaderComponent  {
   // REQUIREMENTS for toggle_buttons
   list_of_old_buttons : any[] = [];
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
+  constructor(private renderer: Renderer2, private el: ElementRef) {
+  }
+  ngAfterViewInit() {
+    // get the header height and set it for all menus
+    const header = this.el.nativeElement.querySelector('#FullHeader');
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      this.SendHeaderHeight.emit(`${headerHeight}px`);
+    }
+  }
 
   // toggle buttons algoritm
   toggle_button(button:any){
@@ -98,6 +109,12 @@ export class HeaderComponent  {
 
   toggle_subs_form(){
     this.display_subscribe = !this.display_subscribe
+    // get the header height and set it for all menus
+    const header = this.el.nativeElement.querySelector('#FullHeader');
+    if (header) {
+      const headerHeight = header.offsetHeight;
+      this.SendHeaderHeight.emit(`${headerHeight}px`);
+    }
   }
 
 

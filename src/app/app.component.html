@@ -1,3 +1,5 @@
-<app-header></app-header>
+<app-header (SendHeaderHeight)="getHedearHeight($event)"></app-header>
+<div  [ngStyle]="{'padding-top': HeaderHeight}">
+  <router-outlet></router-outlet>
+</div>
 
-<router-outlet></router-outlet>

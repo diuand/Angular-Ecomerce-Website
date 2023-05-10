@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'store-website';
+  HeaderHeight : string = ''
+
+  getHedearHeight(height:string){
+    this.HeaderHeight = height
+    console.log(this.HeaderHeight)
+  }
 }

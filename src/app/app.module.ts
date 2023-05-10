@@ -18,6 +18,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './components/header-pop-ups/menu/menu.component';
 import { HoverOpacity9Directive } from './Directives/hover-opacity-9.directive';
 import { HoverBlueDirective } from './Directives/hover-blue.directive';
+import { AccountDesktopComponent } from './components/header-pop-ups/account-desktop/account-desktop.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { HoverBlueDirective } from './Directives/hover-blue.directive';
     HomeComponent,
     MenuComponent,
     HoverOpacity9Directive,
-    HoverBlueDirective
+    HoverBlueDirective,
+    AccountDesktopComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
